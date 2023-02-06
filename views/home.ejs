@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+    <body>
+        <%- include('./partials/navbar.ejs') %>
+
+            <div class="container d-flex justify-content-between border-bottom mt-5 px-0 pb-2 align-items-center">
+                <div>
+                    <h3>Contact List</h3>
+                </div>
+                <div>
+                    <a href="/add" class="btn btn-primary px-3">Add +</a>
+                </div>
+            </div>
+
+            <% if (contacts.length > 0) { %>
+                <div class="container mt-3 p-3 table-responsive">
+                    <table class="table table-dark table-striped table-bordered text-center align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">Sl. No.</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Email Address</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <% for (let i = 0; i < contacts.length; i++) { %>
+                                <tr>
+                                    <td><%= i + 1 %></td>
+                                    <td><%= contacts[i].name %></td>
+                                    <td><%= contacts[i].number %></td>
+                                    <td><%= contacts[i].email %></td>
+                                    <td>
+                                        <a class="btn btn-danger px-3 btn-sm" href="/<%= contacts[i]._id%>" onclick="return confirm('Are you sure you want to delete this contact?')">Delete</a>
+                                    </td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            <% } else { %>
+                <div class="container p-5 bg-danger rounded text-center text-light mt-3">
+                    <h2>No contacts to show!</h2>
+                </div>
+            <% } %>
+
+        <%- include('./partials/footer.ejs') %>
+    </body>
+
+</html>
