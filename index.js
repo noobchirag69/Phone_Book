@@ -9,7 +9,7 @@ const app = express();
 // Database Link
 const dbURI = "mongodb+srv://chiragiemlabs007:0mMVVV9oHUfMsIDo@notepadcluster.tnx3oxu.mongodb.net/?retryWrites=true&w=majority";
 
-// Settinf the strictQuery True
+// Setting the strictQuery True
 mongoose.set('strictQuery', true);
 
 // Connecting to Database and starting the server
