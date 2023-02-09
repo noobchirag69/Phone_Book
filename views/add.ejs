@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('./partials/head.ejs') %>
+<%- include('./partials/head.ejs') %>
 
-<body>
-    <%- include('./partials/navbar.ejs') %>
-    <div class="mx-auto my-5" style="padding: 20px; max-width: 500px;">
-            <form action="/" method="POST" class="bg-dark rounded p-5">
-                <h3 class="text-center text-light mb-4">Add New Contact</h3>
-                <div class="mb-2">
-                    <input type="text" placeholder="Name" class="form-control" name="name" required>
-                </div>
-                <div class="mb-2">
-                    <input type="number" placeholder="Contact Number" class="form-control" name="number" required>
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Email Address" name="email" required>
-                </div>
-                <button class="btn btn-success w-100 fw-bold">Add Contact</button>
-            </form>
-    </div>
-</body>
+    <body>
+        <%- include('./partials/navbar.ejs') %>
+            <div class="mx-auto my-5" style="padding: 20px; max-width: 500px;">
+                <form action="/" method="POST" class="bg-dark rounded p-5">
+                    <h3 class="text-center text-light mb-4">Add New Contact</h3>
+                    <div class="mb-2">
+                        <input type="text" placeholder="Name" class="form-control" name="name" required>
+                    </div>
+                    <div class="mb-2">
+                        <input type="number" placeholder="Contact Number" class="form-control" name="number" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Email Address" name="email" required>
+                    </div>
+                    <button class="btn btn-success w-100 fw-bold">Add Contact</button>
+                </form>
+            </div>
+    </body>
+
 </html>

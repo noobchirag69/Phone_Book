@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     Contact.find()
         .then(result => res.render('home', { title: "Home", contacts: result }))
-        .catch(err => res.status(404).send("Sorry, page not found :/"));
+        .catch(err => console.log(err));
 });
 
 // Add Page Route
@@ -41,14 +41,28 @@ app.post('/', (req, res) => {
     const contact = new Contact(req.body);
     contact.save()
         .then(result => res.redirect('/'))
-        .catch(err => res.status(404).send("Sorry, page not found :/"));
+        .catch(err => console.log(err));
+});
+
+// Edit Page Route
+app.get('/edit/:id', (req, res) => {
+    Contact.findById(req.params.id)
+        .then(result => res.render('edit', { title: "Edit", contact: result }))
+        .catch(err => console.log(err));
+});
+
+// Updating the Contact
+app.post('/edit/:id', (req, res) => {
+    Contact.findByIdAndUpdate(req.params.id, req.body)
+        .then(result => res.redirect('/'))
+        .catch(err => console.log(err));
 });
 
 // Deleting the Contact
 app.get('/:id', (req, res) => {
     Contact.findByIdAndDelete(req.params.id)
         .then(result => res.redirect('/'))
-        .catch(err => res.status(404).send("Sorry, page not found :/"));
+        .catch(err => console.log(err));
 });
 
 // Error Page

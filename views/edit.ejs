@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head.ejs') %>
+
+    <body>
+        <%- include('./partials/navbar.ejs') %>
+            <div class="mx-auto my-5" style="padding: 20px; max-width: 500px;">
+                <form action="/edit/<%= contact._id %>" method="POST" class="bg-dark rounded p-5">
+                    <h3 class="text-center text-light mb-4">Edit Contact</h3>
+                    <div class="mb-2">
+                        <input type="text" class="form-control" name="name" value="<%= contact.name %>" required>
+                    </div>
+                    <div class="mb-2">
+                        <input type="number" class="form-control" name="number" value="<%= contact.number %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" name="email" value="<%= contact.email %>" required>
+                    </div>
+                    <button class="btn btn-success w-100 fw-bold">Update</button>
+                </form>
+            </div>
+    </body>
+
+</html>
